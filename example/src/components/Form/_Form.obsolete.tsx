@@ -8,7 +8,7 @@ import Input from "./Input";
 import { SignInContainer, SignInForm } from "./Form.styles";
 
 /*
-  This approach is obsolete, because each key press will trigger render
+  This approach is obsolete, because each key press will trigger render.
 */
 
 class Form extends React.PureComponent<WithTranslation, FormStateType> {

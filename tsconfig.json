@@ -17,12 +17,12 @@
     "outDir": "lib",
     "strictNullChecks": true,
     "target": "es2019",
-    "tsBuildInfoFile": "lib/.tsbuildinfo",
+    "tsBuildInfoFile": "build/.tsbuildinfo",
     "paths": {
       "proxy-object-path": ["./src"]
     },
     "rootDir": "src"
   },
-  "include": ["./src"],
+  "include": ["./src/index.ts"],
   "exclude": ["node_modules", "example"]
 } 

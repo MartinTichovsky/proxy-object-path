@@ -11,9 +11,9 @@ yarn add proxy-object-path
 
 ## About
 
-This micro project was inspired by [`ts-object-path`](https://github.com/Taras-Tymchiy/ts-object-path) and its solution. My solution is more easier and a major idea is to make code more safer. Instead of using strings in inputs, i18next, etc. we would like to connect them with names generated from a Type (because of typescript checking = less mistakes).
+This micro project was inspired by [`ts-object-path`](https://github.com/Taras-Tymchiy/ts-object-path) and its solution. My solution is simpler and a major idea was to make the code safer. Instead of using strings in inputs, i18next, etc. we would like to connect them with names generated from a Type (because of typescript checking = less mistakes).
 
-If we have an object which is declared as type ExampleType and then we have some function, component, etc. which is accepts a parameter 'key' and by this key will pass a value into that object with this expression `object[key] = value`, providing string as a name is not good practice in TypeScript, because programmers can easily make a typo. See a [React example](https://github.com/MartinTichovsky/proxy-object-path/tree/master/example).
+Let's say we have an object which is declared as type ExampleType and then a function, component, etc. This function accepts a parameter 'key' and will pass a value into the object with this expression `object[key] = value`. Providing string as a name is not good practice in TypeScript, because programmers can easily make a typo. See a [React example](https://github.com/MartinTichovsky/proxy-object-path/tree/master/example).
 
 ![Example of using](https://github.com/MartinTichovsky/__sources__/raw/master/ezgif-7-5e8c2990f28b.gif)
 
@@ -34,7 +34,7 @@ function passValue(key: string, value: string) {
 passValue("username", "martin");
 ```
 
-This example is not too safe, more safer will be this:
+This example is not very safe, safer will be this:
 
 ```ts
 type ExampleType = {
@@ -54,7 +54,7 @@ passValue(fullObjectPath(exampleProxy.username), "martin");
 
 Because `fullObjectPath(exampleProxy.username)` will be checked by typescript and you can't make a mistake in the name "username".
 
-**Note:** This is very dummy example, of course nobody will do such thinks like above, but the major think is an idea, when you have some components, functions or whatever, what receives a name and by this name will pass a value to your existing object, is better to have full control.
+**Note:** This is a very dumb example. Of course, nobody is going to approach this problem like above, the major thing is the idea, that when some components, functions or whatever receive a name and by this name pass a value to your existing object, it gives you full control, which is better.
 
 ## Usage
 
@@ -78,7 +78,7 @@ const i18 = i18ObjectPath(exampleProxy.secret.password)
 // i18 = "secret:password"
 ```
 
-If you want to use full control of object path, you can use function `set` and `get` from [`lodash`](https://github.com/lodash/lodash).
+If you want to use the full potential of object path, you can use functions `set` and `get` from [`lodash`](https://github.com/lodash/lodash).
 
 ## License
 

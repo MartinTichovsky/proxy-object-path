@@ -4,8 +4,9 @@ import { FormStateType } from "./Form.types";
 import { SignInContainer, SignInForm } from "./Form.styles";
 
 /*
-  Consider huge form like this with at least 20 inputs, how will this code looks like?
-  In this case doesn't matter what name the inputs have.
+  Imagine this form on a larger scale with at least 20 inputs.
+  What will this code look like?
+  In this case, it doesn't matter what names the inputs have.
 */
 
 class Form extends React.PureComponent<WithTranslation, FormStateType> {

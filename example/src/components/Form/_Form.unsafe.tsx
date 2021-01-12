@@ -3,8 +3,9 @@ import { withTranslation, WithTranslation } from "react-i18next";
 import { SignInContainer, SignInForm } from "./Form.styles";
 
 /*
-  Consider huge form like this with at least 20 inputs, this code will be unsafe, 
-  to many not referenced strings = you can easily make a typo and you won't know
+  Imagine this form on a larger scale with at least 20 inputs.
+  What will this code look like?
+  This code will be unsafe, too many not referenced strings = you can easily make a typo and you won't know.
 */
 
 type FormStateType = {

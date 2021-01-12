@@ -1,57 +1,50 @@
 import { fullObjectPath, i18ObjectPath } from "proxy-object-path";
 import React from "react";
-import { withTranslation, WithTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import lang from "../../translations/lang";
-import { formStateProxy, FormStateType } from "./Form.types";
-import { cloneDeep, set } from "lodash";
-import Input from "./Input";
+import { formStateProxy, FormValuesType } from "./Form.types";
+import { set } from "lodash";
 import { SignInContainer, SignInForm } from "./Form.styles";
 
-class Form extends React.PureComponent<WithTranslation, FormStateType> {
-  state = {
-    secret: {
-      password: ""
-    },
-    username: ""
-  };
+const formValues: FormValuesType = {
+  secret: {
+    password: ""
+  },
+  username: ""
+};
 
-  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState((state) =>
-      set(cloneDeep(state), e.target.name, e.target.value)
-    );
-  };
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  set(formValues, e.target.name, e.target.value)
+};
 
-  handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(this.state);
-  };
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  console.log(formValues);
+};
 
-  render = () => {
-    const { t } = this.props;
+const Form = () => {
+  const { t } = useTranslation();
 
-    return (
-      <SignInForm onSubmit={this.handleSubmit}>
-        <SignInContainer>
-          <h4>{t(i18ObjectPath(lang.signIn.title))}</h4>
-          <Input
-            name={fullObjectPath(formStateProxy.username)}
-            onChange={this.handleChange}
-            placeholder={t(i18ObjectPath(lang.signIn.username))}
-            state={this.state}
-            type="text"
-          />
-          <Input
-            name={fullObjectPath(formStateProxy.secret.password)}
-            onChange={this.handleChange}
-            placeholder={t(i18ObjectPath(lang.signIn.password))}
-            state={this.state}
-            type="password"
-          />
-          <button type="submit">{t(i18ObjectPath(lang.signIn.button))}</button>
-        </SignInContainer>
-      </SignInForm>
-    );
-  };
+  return (
+    <SignInForm onSubmit={handleSubmit}>
+      <SignInContainer>
+        <h4>{t(i18ObjectPath(lang.signIn.title))}</h4>
+        <input
+          name={fullObjectPath(formStateProxy.username)}
+          onChange={handleChange}
+          placeholder={t(i18ObjectPath(lang.signIn.username))}
+          type="text"
+        />
+        <input
+          name={fullObjectPath(formStateProxy.secret.password)}
+          onChange={handleChange}
+          placeholder={t(i18ObjectPath(lang.signIn.password))}
+          type="password"
+        />
+        <button type="submit">{t(i18ObjectPath(lang.signIn.button))}</button>
+      </SignInContainer>
+    </SignInForm>
+  );
 }
 
-export default withTranslation()(Form);
+export default Form;

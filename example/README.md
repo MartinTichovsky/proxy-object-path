@@ -95,4 +95,4 @@ Build commands have the same meanings as start, just only with the difference th
 
 # Changes
 
-I have improved this example for better performance. The render will be triggered only if it will be really neccesary. When you will need to use a validation in form inputs, the approch will be a bit different to prevent unnecessary renders on each key press.
+I have improved this example for better performance. The render will be triggered only if it will be really necessary. When you will need to use a validation in form inputs, the approch will be a bit different to prevent unnecessary renders on each key press.

@@ -8,7 +8,7 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["dom", "es2019"],
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
@@ -16,7 +16,7 @@
     "noUnusedParameters": false,
     "outDir": "lib",
     "strictNullChecks": true,
-    "target": "es2019",
+    "target": "es5",
     "tsBuildInfoFile": "build/.tsbuildinfo",
     "paths": {
       "proxy-object-path": ["./src"]
@@ -25,4 +25,4 @@
   },
   "include": ["./src/index.ts"],
   "exclude": ["node_modules", "example"]
-} 
+}

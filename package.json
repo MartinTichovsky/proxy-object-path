@@ -1,6 +1,6 @@
 {
   "name": "proxy-object-path",
-  "version": "1.0.2",
+  "version": "1.1.1",
   "description": "How to connect types with names / how to get a path of an object",
   "author": "Martin Tichovsky",
   "license": "MIT",
@@ -9,10 +9,11 @@
     "type": "git",
     "url": "http://github.com/MartinTichovsky/proxy-object-path"
   },
+  "keywords": ["typescript", "proxy", "object path", "nameof"],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "tsc -b && tsc -b tsconfig.es5.json",
+    "build": "tsc -b",
     "prepare": "npm run build",
     "prepublishOnly": "npm test",
     "test": "jest --silent"
